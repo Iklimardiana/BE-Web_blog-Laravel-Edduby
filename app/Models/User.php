@@ -45,4 +45,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // Relasi ke Profile (satu user punya satu profile)
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
+
+    // Relasi ke Profile (satu user punya banyak post)
+    public function post()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
